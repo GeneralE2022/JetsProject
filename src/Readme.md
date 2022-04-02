@@ -4,10 +4,17 @@
 
 ## Overview 
 
-Jets fleet management 
+Jets fleet management with the following options: 
 
-[insert user stories] 
-
+1. List fleet
+2. Fly all jets
+3. View fastest jet
+4. View jet with longest range
+5. Load all Cargo Jets
+6. Dogfight!
+7. Add a jet to Fleet
+8. Remove a jet from Fleet
+9. Quit the program 
 
 
 ## Technologies / Skills used 
@@ -15,6 +22,7 @@ Jets fleet management
 * Eclipse 
 * Arrays / ArrayList 
 * Encapsulation 
+* Interfaces 
 * Polymorphism 
 * Abstract classes 
 * Setters / getters 
@@ -22,5 +30,7 @@ Jets fleet management
 * the toString method 
 
 ## Lessons learned 
-* [complete] 
-* Shout out to the brilliant SD TAs! 
+* How to work with multiple classes 
+* How to use interfaces 
+* General familiarity with polymorphism 
+* Controlling a while loop with a controller variable 
