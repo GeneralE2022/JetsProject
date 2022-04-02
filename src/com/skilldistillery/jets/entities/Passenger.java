@@ -10,8 +10,7 @@ public class Passenger extends Jet {
 
 	@Override
 	public void fly() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Passenger jet taking off!");
 	}
 
 }

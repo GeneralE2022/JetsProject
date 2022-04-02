@@ -14,8 +14,7 @@ public class Blimp extends Jet {
 
 	@Override
 	public void fly() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Blimp lifting off!");		
 	}
 
 }

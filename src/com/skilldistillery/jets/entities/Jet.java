@@ -26,8 +26,11 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet [name=" + name + ", model=" + model + ", speed=" + speed + ", range=" + range + ", price=" + price
-				+ "]";
+		return "Name: " + name + "\t" 
+				+ "Model: " + model + "\t" 
+				+ "Speed: " + speed + "\t"
+				+ "Range: " + range + "\t"
+				+ "Price: " + price;
 	}
 
 
