@@ -22,7 +22,13 @@ public abstract class Jet {
 
 
 	//methods 
-	public abstract void fly(); 
+	public void fly() {
+		System.out.println(model + " has taken off...");
+	}
+	
+	public void dogfight() {
+		System.out.println(model + " is fighting...");
+	}
 
 	@Override
 	public String toString() {

@@ -11,6 +11,7 @@ public class AirField {
 
 	// fields
 	private List<Jet> jetsList;
+	boolean running = true;
 
 	// constructors
 	public void buildFleet() {
@@ -59,49 +60,53 @@ public class AirField {
 	// Display menu with items 1-9
 	public void displayMainMenu() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please make your selection: ");
-		System.out.println("1. List fleet");
-		System.out.println("2. Fly all jets");
-		System.out.println("3. View fastest jet");
-		System.out.println("4. View jet with longest range");
-		System.out.println("5. Load all cargo jets");
-		System.out.println("6. Dogfight!");
-		System.out.println("7. Add a jet to Fleet");
-		System.out.println("8. Remove a jet from Fleet");
-		System.out.println("9. Quit");
-		int selection = sc.nextInt();
 
-		switch (selection) {
-		case 1:
-			listFleet();
-			break;
-		case 2:
-			fly();
-			break;
-		case 3:
-			showFastestJet();
-			break;
-		case 4:
-			showLongestRange();
-			break;
-		case 5:
-			loadCargoJets();
-			break;
-		case 6:
-			dogFight();
-			break;
-		case 7:
-			addNewJet();
-			break;
-		case 8:
-			removeJet();
-			break;
-		case 9:
-			quitProgram();
-			break;
-		default:
-			break;
+		while (running) {
 
+			System.out.println("Please make your selection: ");
+			System.out.println("1. List fleet");
+			System.out.println("2. Fly all jets");
+			System.out.println("3. View fastest jet");
+			System.out.println("4. View jet with longest range");
+			System.out.println("5. Load all cargo jets");
+			System.out.println("6. Dogfight!");
+			System.out.println("7. Add a jet to Fleet");
+			System.out.println("8. Remove a jet from Fleet");
+			System.out.println("9. Quit");
+			int selection = sc.nextInt();
+
+			switch (selection) {
+			case 1:
+				listFleet();
+				break;
+			case 2:
+				fly();
+				break;
+			case 3:
+				showFastestJet();
+				break;
+			case 4:
+				showLongestRange();
+				break;
+			case 5:
+				loadMrBlimp();
+				break;
+			case 6:
+				dogFight();
+				break;
+			case 7:
+				addNewJet();
+				break;
+			case 8:
+				removeJet();
+				break;
+			case 9:
+				quitProgram();
+				break;
+			default:
+				break;
+
+			}
 		}
 	}
 
@@ -122,9 +127,9 @@ public class AirField {
 	// selection 3
 	public void showFastestJet() {
 		Jet fastest = jetsList.get(0);
-		for (Jet Jet : jetsList) {
-			if (fastest.getSpeed() > Jet.getSpeed()) {
-				fastest = Jet;
+		for (Jet jet : jetsList) {
+			if (fastest.getSpeed() < jet.getSpeed()) {
+				fastest = jet;
 			}
 		}
 		System.out.print("The fastest jet is:\n " + fastest);
@@ -132,38 +137,74 @@ public class AirField {
 
 	// selection 4
 	private void showLongestRange() {
-		// TODO Auto-generated method stub
+		Jet longest = jetsList.get(0);
+		for (Jet jet : jetsList) {
+			if (longest.getRange() < jet.getRange())
+				longest = jet;
+		}
+		System.out.print("The jet with the longest range is:\n " + longest);
 
 	}
 
 	// selection 5
-	private void loadCargoJets() {
-		// TODO Auto-generated method stub
-
+	private void loadMrBlimp() {
+		for (Jet jet : jetsList) {
+			if (jet instanceof CargoCarrier) {
+				System.out.println(jet.getName() + " loaded.");
+			}
+		}
 	}
 
 	// selection 6
 	private void dogFight() {
-		// TODO Auto-generated method stub
-
+		for (Jet jet : jetsList) {
+			jet.dogfight();
+		}
 	}
 
 	// selection 7
 	private void addNewJet() {
-		// TODO Auto-generated method stub
+		Jet newJet = new JetImpl();  
+		Scanner sc = new Scanner(System.in); 
+		
+		System.out.println("Please enter a jet name: ");
+		String name = sc.next();
+		newJet.setName(name);
 
+		System.out.println("Please enter a jet model: ");
+		String model = sc.next();
+		newJet.setModel(model);
+
+		System.out.println("Please enter a jet speed: ");
+		double speed = sc.nextInt();
+		newJet.setSpeed(speed);
+
+		System.out.println("Please enter a jet range: ");
+		int range = sc.nextInt();
+		newJet.setRange(range);
+
+		System.out.println("Please enter a jet price: ");
+		long price = (long) sc.nextInt();
+		newJet.setPrice(price);
+		
+		jetsList.add(newJet); 
+		
+			
 	}
 
 	// selection 8
 	private void removeJet() {
-		// TODO Auto-generated method stub
-
+		Scanner sc = new Scanner(System.in); 
+		System.out.println("Enter 1-5 to remove the corresponding jet.");
+		int input = sc.nextInt();
+		
+		jetsList.remove(input);
+		System.out.println("Jet #" + input + " successfully removed. \n");
 	}
 
 	// selection 9
 	private void quitProgram() {
-		// TODO Auto-generated method stub
-
+		System.out.println("Goodbye!");
+		running = false;
 	}
-
 }

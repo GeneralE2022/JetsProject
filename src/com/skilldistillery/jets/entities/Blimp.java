@@ -1,6 +1,6 @@
 package com.skilldistillery.jets.entities;
 
-public class Blimp extends Jet {
+public class Blimp extends Jet implements CargoCarrier {
 	
 
 
