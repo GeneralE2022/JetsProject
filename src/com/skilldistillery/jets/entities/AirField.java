@@ -106,7 +106,6 @@ public class AirField {
 			default:
 				break;
 			}
-			sc.close();
 		}
 	}
 
@@ -188,7 +187,6 @@ public class AirField {
 		newJet.setPrice(price);
 		
 		jetsList.add(newJet); 		
-		sc.close();
 			
 	}
 
@@ -200,7 +198,6 @@ public class AirField {
 		
 		jetsList.remove(input);
 		System.out.println("Jet #" + input + " successfully removed. \n");
-		sc.close();
 	}
 
 	// selection 9
